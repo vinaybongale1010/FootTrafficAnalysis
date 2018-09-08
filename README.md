@@ -185,4 +185,4 @@ You can clone the solution for the assignment with the above url. To run the fil
 
 > ruby 2.5.1 used
 
-Dependencies > Rspec 
+Dependencies > Rspec gem
