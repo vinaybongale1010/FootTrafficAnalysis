@@ -3,6 +3,7 @@ class FootTrafficFile
   @@line_map = [:visitor_identifier, :room_index, :visitor_status, :event_time_stamp]
   
   def initialize(options={})
+    return if options[:filepath].nil?
     @filepath = File.join(APP_ROOT,options[:filepath])
   end
 
@@ -22,7 +23,7 @@ class FootTrafficFile
       file.gets.chomp.to_i
 
       file.each_line do |line|
-        foot_traffics << import_foot_traffic(line.chomp)
+        foot_traffics << import_foot_traffic(line) unless line.chomp.empty?
       end
       file.close
     end
